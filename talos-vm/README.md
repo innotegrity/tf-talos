@@ -1,4 +1,18 @@
+<!-- omit in toc -->
 # Talos Linux Virtual Machine Module
+
+<!-- omit in toc -->
+## Table of Contents
+
+- [👁️ Overview](#️-overview)
+- [✅ Provider Requirements](#-provider-requirements)
+- [➡️ Inputs](#️-inputs)
+- [⬅️ Outputs](#️-outputs)
+- [📖 Custom Object Definitions](#-custom-object-definitions)
+  - [DHCPObject Type](#dhcpobject-type)
+  - [DiskObject Type](#diskobject-type)
+
+## 👁️ Overview
 
 This module creates a virtual machine running Talos Linux booted from an ISO image.
 
@@ -8,15 +22,19 @@ Supported backends for creating DHCP reservations are:
 
 - Ubiquiti UDM Pro
 
-## Required Providers
+## ✅ Provider Requirements
+
+The following Terraform providers are required for this module:
 
 - `ivoronin/macaddress` ~> v0.3
 - `bpg/proxmox` ~> 0.89
 - `ubiquiti-community/unifi` ~> 0.41
 
-## Inputs
+## ➡️ Inputs
 
-**Required Values**
+The input variables for this module are defined below.
+
+**<u>Required Values</u>**
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -26,7 +44,7 @@ Supported backends for creating DHCP reservations are:
 | `storage_pool` | `string` | The name/ID of the storage device/pool in which to place the root disk |
 | `talos_iso_file_id` | `string` | The ID of the Talos ISO image to use to deploy the VM |
 
-**Optional Values**
+_<u>Optional Values</u>_
 
 | Variable | Type | Description | Default |
 | --- | --- | --- | --- |
@@ -41,7 +59,9 @@ Supported backends for creating DHCP reservations are:
 | `vm_id` | `number` | The unique ID to use for the VM or `null` to use the next available ID. | `null` |
 | `vm_tags` | `list(string)` | List of tags to apply to the VM ; each VM is automatically tagged with its cluster role as well as `k8s` and `opentofu-managed` | `[]` |
 
-## Outputs
+## ⬅️ Outputs
+
+This module produces the following outputs:
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -49,20 +69,20 @@ Supported backends for creating DHCP reservations are:
 | `vm_id` | `number` | ID of the newly created virtual machine |
 | `vm_name` | `string` | Name of the newly created virtual machine |
 
-## Object Definitions
+## 📖 Custom Object Definitions
 
 ### DHCPObject Type
 
-This object is used only for input.
+This is an input object used to define the configuration for a DHCP static reservation for the VM.
 
-**Required Values**
+**<u>Required Values</u>**
 
 | Variable | Type | Description |
 | --- | --- | --- |
 | `ip_address` | `string` | The IP address to assign to the system via DHCP reservation |
 | `provider` | `string` | The name of the DHCP provider to use ; must be `unifi` |
 
-**Optional Values**
+_<u>Optional Values</u>_
 
 | Variable | Type | Description | Default |
 | --- | --- | --- | --- |
@@ -72,16 +92,16 @@ This object is used only for input.
 
 ### DiskObject Type
 
-This object is used only for input.
+This is an input object used to define the configuration for an extra disk to add to the VM.
 
-**Required Values**
+**<u>Required Values</u>**
 
 | Variable | Type | Description |
 | --- | --- | --- |
 | `size` | `number` | Size of the disk in GB |
 | `storage_pool` | `string` | The name/ID of the storage device/pool in which to place the disk |
 
-**Optional Values**
+_<u>Optional Values</u>_
 
 | Variable | Type | Description | Default |
 | --- | --- | --- | --- |

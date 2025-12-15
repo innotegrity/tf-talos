@@ -1,4 +1,20 @@
+<!-- omit in toc -->
 # Talos Linux Cluster Module
+
+<!-- omit in toc -->
+## Table of Contents
+
+- [👁️ Overview](#️-overview)
+- [✅ Provider Requirements](#-provider-requirements)
+- [➡️ Inputs](#️-inputs)
+- [⬅️ Outputs](#️-outputs)
+- [📖 Custom Object Definitions](#-custom-object-definitions)
+  - [DNSObject Type](#dnsobject-type)
+  - [KubernetesConfigObject Type](#kubernetesconfigobject-type)
+  - [NodeObject Type](#nodeobject-type)
+  - [OIDCConfigObject Type](#oidcconfigobject-type)
+
+## 👁️ Overview
 
 This module creates, configures and bootstraps a Talos cluster running Cilium CNI.
 
@@ -6,16 +22,20 @@ You can optionally register any cluster SANs with DNS using any of the following
 
 - Ubiquiti UDM Pro
 
-## Required Providers
+## ✅ Provider Requirements
+
+The following Terraform providers are required for this module:
 
 - `hashicorp/helm` ~> 3.1
 - `hashicorp/null` ~> 3.2
 - `siderolabs/talos` ~> 0.9
 - `ubiquiti-community/unifi` ~> 0.41
 
-## Inputs
+## ➡️ Inputs
 
-**Required Values**
+The input variables for this module are defined below.
+
+**<u>Required Values</u>**
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -26,7 +46,7 @@ You can optionally register any cluster SANs with DNS using any of the following
 | `talos_version` | `string` | The version of Talos to use for the generated node configurations |
 | `worker_nodes` | `map(`[NodeObject](#nodeobject-type)`)` | Configuration for worker nodes |
 
-**Optional Values**
+_<u>Optional Values</u>_
 
 | Variable | Type | Description | Default |
 | --- | --- | --- | --- |
@@ -35,7 +55,9 @@ You can optionally register any cluster SANs with DNS using any of the following
 | `dns` | [DNSObject](#dnsobject-type) | DNS configuration for registering cluster SANs to the `cluster_vip` or `null` to disable DNS registration ; if `cluster_vip` is not provided or `cluster_sans` is empty then this value is ignored | `null` |
 | `oidc_config` | [OIDCConfigObject](#oidcconfigobject-type) | OIDC configuration for authentication or `null` to disable OIDC authentication | `null` |
 
-## Outputs
+## ⬅️ Outputs
+
+This module produces the following outputs:
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -43,13 +65,13 @@ You can optionally register any cluster SANs with DNS using any of the following
 | `kubeconfig_file_contents` | `string` | The contents to add to the `kubectl` configuration file |
 | `kubeconfig` | [KubernetesConfigObject](#kubernetesconfigobject-type) | Kubernetes cluster configuration |
 
-## Object Definitions
+## 📖 Custom Object Definitions
 
 ### DNSObject Type
 
-This object is only used for input.
+This is an input object used to define the configuration for automatic cluster SAN name to cluster VIP registration in DNS.
 
-**Required Values**
+**<u>Required Values</u>**
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -57,7 +79,7 @@ This object is only used for input.
 
 ### KubernetesConfigObject Type
 
-This object is used only for output.
+This is an output object that contains the configuration for the Kubernetes cluster created by the module.
 
 | Variable | Type | Description |
 | --- | --- | --- |
@@ -68,16 +90,16 @@ This object is used only for output.
 
 ### NodeObject Type
 
-This object is used only for input.
+This is an input object used to define the configuration settings for a cluster node.
 
-**Required Values**
+**<u>Required Values</u>**
 
 | Variable | Type | Description |
 | --- | --- | --- |
 | `hostname` | `string` | The hostname for the node |
 | `ip_address` | `string` | The IP address for the node |
 
-**Optional Values**
+_<u>Optional Values</u>_
 
 | Variable | Type | Description | Default |
 | --- | --- | --- | --- |
@@ -86,16 +108,16 @@ This object is used only for input.
 
 ### OIDCConfigObject Type
 
-This object is use only for input.
+This is an input object used to define the configuration for the OIDC authentication provider for the Kubernetes cluster.
 
-**Required Values**
+**<u>Required Values</u>**
 
 | Variable | Type | Description |
 | --- | --- | --- |
 | `issuer_url` | `string` | The URL of the OIDC issuer |
 | `client_id` | `string` | The ID of the OIDC client |
 
-**Optional Values**
+_<u>Optional Values</u>_
 
 | Variable | Type | Description | Default |
 | --- | --- | --- | --- |
