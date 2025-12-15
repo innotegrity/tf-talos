@@ -54,9 +54,6 @@ The following modules are available within this repository:
 - [Talos ISO Image Module](./talos-image/README.md): Module for downloading a factory-generated Talos ISO image
 - [Talos VM Module](./talos-vm/README.md): Module for creating a Talos Linux virtual machine
 
-
-This module is supported for Go v1.23.1 and later.
-
 ## 📃 License
 
 This software is distributed under the MIT License.
