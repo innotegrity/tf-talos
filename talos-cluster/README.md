@@ -41,7 +41,7 @@ The input variables for this module are defined below.
 | --- | --- | --- |
 | `cluster_name` | `string` | The name to use for the Talos cluster |
 | `control_plane_nodes` | `map(`[NodeObject](#nodeobject-type)`)` | Configuration for control plane nodes |
-| `k8s_version` | `string` | The Kubernetes version to use for the cluster ; must be one of the official [Kubernetes release versions](https://kubernetes.io/releases/) |
+| `k8s_version` | `string` | The Kubernetes version to use for the cluster ; must be one of the official <a href="https://kubernetes.io/releases/" target="_blank">Kubernetes release versions</a> |
 | `talos_installer_image_id` | `string` | The ID of the Talos installer image to use when installing the containers onto the cluster VMs ; this should be the `installer_secureboot` value from the `source_urls` output in the [Talos ISO Image Module](../talos-image/README.md) |
 | `talos_version` | `string` | The version of Talos to use for the generated node configurations |
 | `worker_nodes` | `map(`[NodeObject](#nodeobject-type)`)` | Configuration for worker nodes |
