@@ -16,7 +16,9 @@
 
 ## 👁️ Overview
 
-This module creates, configures and bootstraps a Talos cluster running Cilium CNI.
+This module creates, configures and bootstraps a Talos cluster which will be ready to run Cilium as the CNI provider.
+
+You **must** run the [Talos Linux Cluster CNI Module](../talos-cluster-cni/README.md) **after** this module in order to have a functioning cluster.
 
 You can optionally register any cluster SANs with DNS using any of the following providers:
 
@@ -26,7 +28,6 @@ You can optionally register any cluster SANs with DNS using any of the following
 
 The following Terraform providers are required for this module:
 
-- `hashicorp/helm` ~> 3.1
 - `hashicorp/null` ~> 3.2
 - `siderolabs/talos` ~> 0.9
 - `ubiquiti-community/unifi` ~> 0.41
