@@ -63,6 +63,7 @@ This module produces the following outputs:
 | Variable | Type | Description |
 | --- | --- | --- |
 | `talos_config_file_contents` | `string` | The contents to add to the `talosctl` configuration file |
+| `talos_machine_secrets` | `object` | Secrets used by the Talos cluster (see the [talos_machine_secrets Resource](https://registry.terraform.io/providers/siderolabs/talos/latest/docs/resources/machine_secrets) |
 | `kubeconfig_file_contents` | `string` | The contents to add to the `kubectl` configuration file |
 | `kubeconfig` | [KubernetesConfigObject](#kubernetesconfigobject-type) | Kubernetes cluster configuration |
 

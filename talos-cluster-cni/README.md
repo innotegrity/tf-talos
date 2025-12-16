@@ -28,6 +28,7 @@ The input variables for this module are defined below.
 
 | Variable | Type | Description |
 | --- | --- | --- |
+| `cluster_name` | `string` | The name used for the Talos cluster |
 | `control_plane_nodes` | `list(string)` | List of control plane nodes for the Talos cluster. Only when these nodes and the worker nodes return healthy will the module complete. |
 | `endpoints` | `list(string)` | List of endpoints to use to check the cluster health. |
 | `worker_nodes` | `list(string)` | List of worker nodes for the Talos cluster. Only when these nodes and the control plane nodes return healthy will the module complete. |

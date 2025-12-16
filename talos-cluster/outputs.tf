@@ -1,3 +1,9 @@
+output "talos_machine_secrets" {
+  description = "Machine secrets used for the Talos cluster"
+  value       = data.talos_machine_secrets.this.machine_secrets
+  sensitive   = true
+}
+
 output "talos_config_file_contents" {
   description = "Contents to add to talosctl configuration file"
   value       = data.talos_client_configuration.this.talos_config

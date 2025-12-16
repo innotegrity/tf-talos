@@ -1,3 +1,10 @@
+data "talos_client_configuration" "this" {
+  cluster_name         = var.cluster_name
+  client_configuration = var.client_configuration
+  nodes                = concat(var.control_plane_nodes, var.worker_nodes)
+  endpoints            = var.endpoints
+}
+
 resource "helm_release" "cilium_cni" {
   repository = "https://helm.cilium.io"
   chart      = "cilium"

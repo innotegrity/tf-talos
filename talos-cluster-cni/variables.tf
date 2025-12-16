@@ -1,3 +1,17 @@
+variable "cluster_name" {
+  type        = string
+  description = "Name of the Talos cluster."
+}
+
+variable "client_configuration" {
+  type = object({
+    ca_certificate     = string
+    client_certificate = string
+    client_key         = string
+  })
+  description = "The Talos client configuration certificates and keys."
+  sensitive   = true
+}
 
 variable "control_plane_nodes" {
   type        = list(string)
