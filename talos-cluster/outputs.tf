@@ -1,6 +1,6 @@
 output "talos_machine_secrets" {
   description = "Machine secrets used for the Talos cluster"
-  value       = data.talos_machine_secrets.this.machine_secrets
+  value       = talos_machine_secrets.this.machine_secrets
   sensitive   = true
 }
 

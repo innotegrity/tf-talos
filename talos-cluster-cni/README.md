@@ -8,6 +8,8 @@
 - [✅ Provider Requirements](#-provider-requirements)
 - [➡️ Inputs](#️-inputs)
 - [⬅️ Outputs](#️-outputs)
+- [📖 Custom Object Definitions](#-custom-object-definitions)
+  - [ClientConfigurationObject Type](#clientconfigurationobject-type)
 
 ## 👁️ Overview
 
@@ -29,6 +31,7 @@ The input variables for this module are defined below.
 | Variable | Type | Description |
 | --- | --- | --- |
 | `cluster_name` | `string` | The name used for the Talos cluster |
+| `client_configuration` | [ClientConfigurationObject](#clientconfigurationobject-type) | Talos client configuration certificates and keys |
 | `control_plane_nodes` | `list(string)` | List of control plane nodes for the Talos cluster. Only when these nodes and the worker nodes return healthy will the module complete. |
 | `endpoints` | `list(string)` | List of endpoints to use to check the cluster health. |
 | `worker_nodes` | `list(string)` | List of worker nodes for the Talos cluster. Only when these nodes and the control plane nodes return healthy will the module complete. |
@@ -36,3 +39,17 @@ The input variables for this module are defined below.
 ## ⬅️ Outputs
 
 This module produces no outputs.
+
+## 📖 Custom Object Definitions
+
+### ClientConfigurationObject Type
+
+This is an input object used to define the certificates and keys that must be used to connect to the Talos cluster.
+
+**<u>Required Values</u>**
+
+| Variable | Type | Description |
+| --- | --- | --- |
+| `ca_certificate` | `string` | The CA certificate used to sign the client certificate |
+| `client_certificate` | `string` | The client certificate used to connect to the Talos cluster |
+| `client_key` | `string` | The client key used to connect to the Talos cluster |
