@@ -61,7 +61,7 @@ This module produces the following outputs:
 
 | Variable | Type | Description |
 | --- | --- | --- |
-| `talos_config_contents` | `string` | The contents to add to the `talosctl` configuration file |
+| `talos_config_file_contents` | `string` | The contents to add to the `talosctl` configuration file |
 | `kubeconfig_file_contents` | `string` | The contents to add to the `kubectl` configuration file |
 | `kubeconfig` | [KubernetesConfigObject](#kubernetesconfigobject-type) | Kubernetes cluster configuration |
 

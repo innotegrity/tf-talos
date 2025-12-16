@@ -8,5 +8,5 @@ locals {
   disk_size = coalesce(var.disk_size, var.cluster_role == "control-plane" ? 50 : 100)
 
   generate_random_mac = (var.dhcp != null && var.dhcp.mac_address == null)
-  mac_address         = (var.dhcp == null) ? null : (local.generate_random_mac ? resource.macaddress.talos_node.address : var.dhcp.mac_address)
+  mac_address         = (var.dhcp == null) ? null : (local.generate_random_mac ? resource.macaddress.talos_node[0].address : var.dhcp.mac_address)
 }
