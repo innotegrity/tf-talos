@@ -3,6 +3,6 @@ resource "unifi_user" "talos_node" {
 
   name             = var.hostname
   mac              = local.mac_address
-  fixed_ip         = var.ip_address
+  fixed_ip         = var.dhcp.ip_address
   local_dns_record = (var.dhcp.reserve_hostname) ? var.hostname : null
 }
