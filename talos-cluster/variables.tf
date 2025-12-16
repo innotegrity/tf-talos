@@ -35,7 +35,7 @@ variable "dns" {
   })
   description = "Optional configuration for registering DNS records for the cluster."
   validation {
-    condition     = contains("unifi", var.dns.provider)
+    condition     = contains(["unifi"], var.dns.provider)
     error_message = "'provider' must be 'unifi'"
   }
   default = null

@@ -9,6 +9,7 @@ No unreleased changes
 * Fixed README for `talos-cluster` module as it had an error with the output fields
 * Fixed the `mac_address` local variable for `talos-vm` as it was missing an index
 * Fixed an incorrect reference to `ip_address` in the `talos-vm` module
+* Fixed issue with condition check on `dns.provider` in the `talos-cluster` module
 
 ## v0.1.0 (Released 2025-12-14)
 
