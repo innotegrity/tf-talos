@@ -70,9 +70,9 @@ data "talos_cluster_health" "this" {
   ]
 
   client_configuration   = data.talos_client_configuration.this.client_configuration
-  control_plane_nodes    = local.control_plane_nodes
-  worker_nodes           = local.worker_nodes
-  endpoints              = local.endpoints
+  control_plane_nodes    = var.control_plane_nodes
+  worker_nodes           = var.worker_nodes
+  endpoints              = var.endpoints
   skip_kubernetes_checks = true
   timeouts = {
     read = "5m"

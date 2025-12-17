@@ -32,9 +32,9 @@ The input variables for this module are defined below.
 | --- | --- | --- |
 | `cluster_name` | `string` | The name used for the Talos cluster |
 | `client_configuration` | [ClientConfigurationObject](#clientconfigurationobject-type) | Talos client configuration certificates and keys |
-| `control_plane_nodes` | `list(string)` | List of control plane nodes for the Talos cluster. Only when these nodes and the worker nodes return healthy will the module complete. |
-| `endpoints` | `list(string)` | List of endpoints to use to check the cluster health. |
-| `worker_nodes` | `list(string)` | List of worker nodes for the Talos cluster. Only when these nodes and the control plane nodes return healthy will the module complete. |
+| `control_plane_nodes` | `list(string)` | List of control plane IP addresses for the Talos cluster. Only when these nodes and the worker nodes return healthy will the module complete. |
+| `endpoints` | `list(string)` | List of IP addresses to use to check the cluster health. |
+| `worker_nodes` | `list(string)` | List of worker IP addresses for the Talos cluster. Only when these nodes and the control plane nodes return healthy will the module complete. |
 
 ## ⬅️ Outputs
 
